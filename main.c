@@ -222,16 +222,16 @@
 		u8 g_ChooseNumber1=0;//手动第二页选择变量
 		u8 g_ChooseNumber2=0;// 手动参数设置页
 		u8 g_ChooseNumber3=0;//手动延时设置页变量
-                u8 g_ChooseNumber3_1=0;//手动地址设置变量
-                u8 g_ChooseNumber3_2=0;//手动主从设置变量
-                u8 g_ChooseNumber3_3=0;//CT变比设置变量
-                u8 g_ChooseNumber3_4=0;//自动校准过零
-                u8 g_ChooseNumber3_5=0;//电容投切大循环时间设置        
-                u8 g_ChooseNumber3_6=0;// 功率因数和无功阀值设置       
+	        u8 g_ChooseNumber3_1=0;//手动地址设置变量
+	        u8 g_ChooseNumber3_2=0;//手动主从设置变量
+	        u8 g_ChooseNumber3_3=0;//CT变比设置变量
+	        u8 g_ChooseNumber3_4=0;//自动校准过零
+	        u8 g_ChooseNumber3_5=0;//电容投切大循环时间设置        
+	        u8 g_ChooseNumber3_6=0;// 功率因数和无功阀值设置       
 		u8 g_ChooseNumber4=0;//手动投切页面
 		u8 g_ChooseNumber5=2;//手动投切从机页面
-                u16 g_BackCounter1=0;//显示计时返回变量
-                uint8_t PhaseABC=0;
+	        u16 g_BackCounter1=0;//显示计时返回变量
+	        uint8_t PhaseABC=0;
 		g_OnNum1=0;
 		g_OnNum2=0;
 		g_OnNum3=0;
@@ -377,20 +377,14 @@
                                               break;
                                          }
                                       if((g_Key1StateCheck==1)&&(g_ChooseNumber2==0)) {              g_BackCounter1=0;
-                                                    //  LCD_Display(Bmp_Clear16, 0xb0, 0x15,0x00, 16);
-                                                   //   LCD_Display(Bmp_Clear16+16, 0xb1, 0x15,0x00, 16);
-                                                   //   LCD_Display(Bmp_XuanZe, 0xb2, 0x15,0x00, 16);
-                                                   //   LCD_Display(Bmp_XuanZe+16, 0xb3, 0x15,0x00, 16);
+                                                  
                                                                               ClearDisplay(0xb0, 0xb1,0x15,0x00);
                                                                    XuanZeDisplay(0xb2, 0xb3,0x15,0x00);
                                                       g_Key1StateCheck=0;
                                                       g_ChooseNumber2=1;
                                                       }
                                       if((g_Key1StateCheck==1)&&(g_ChooseNumber2==1)) {              g_BackCounter1=0;
-                                                      //LCD_Display(Bmp_Clear16, 0xb2, 0x15,0x00, 16);
-                                                     // LCD_Display(Bmp_Clear16+16, 0xb3, 0x15,0x00, 16);
-                                                      //LCD_Display(Bmp_XuanZe, 0xb4, 0x15,0x00, 16);
-                                                      //LCD_Display(Bmp_XuanZe+16, 0xb5, 0x15,0x00, 16);
+                                                  
                                                       ClearDisplay(0xb2, 0xb3,0x15,0x00);
                                                XuanZeDisplay(0xb4, 0xb5,0x15,0x00);
                                                       g_Key1StateCheck=0;
@@ -398,20 +392,14 @@
                                                       }
                               
                                       if((g_Key1StateCheck==1)&&(g_ChooseNumber2==2)) {              g_BackCounter1=0;
-                                                      //LCD_Display(Bmp_Clear16, 0xb4, 0x15,0x00, 16);
-                                                      //LCD_Display(Bmp_Clear16+16, 0xb5, 0x15,0x00, 16);
-                                                      //LCD_Display(Bmp_XuanZe, 0xb6, 0x16,0x0e, 16);
-                                                      //LCD_Display(Bmp_XuanZe+16, 0xb7, 0x16,0x0e, 16);
+                                                     
                                                       ClearDisplay(0xb4, 0xb5,0x15,0x00);
                                                                    XuanZeDisplay(0xb6, 0xb7,0x16,0x0e);
                                                       g_Key1StateCheck=0;
                                                       g_ChooseNumber2=3;
                                                       }
                                       if((g_Key1StateCheck==1)&&(g_ChooseNumber2==3)) {              g_BackCounter1=0;	
-                                                      //LCD_Display(Bmp_Clear16, 0xb6, 0x16,0x0e, 16);
-                                                      //LCD_Display(Bmp_Clear16+16, 0xb7, 0x16,0x0e, 16);
-                                                      //LCD_Display(Bmp_XuanZe, 0xb0, 0x15,0x00, 16);
-                                                      //LCD_Display(Bmp_XuanZe+16, 0xb1, 0x15,0x00, 16);
+                                                   
                                                       ClearDisplay(0xb6, 0xb7,0x16,0x0e);
                                                                    XuanZeDisplay(0xb0, 0xb1,0x15,0x00);
                                                       g_Key1StateCheck=0;
@@ -472,8 +460,7 @@
                                           u8 g_M3=0;
 
                                           Display3_5Page(g_M1,g_M2,g_M3);
-                                          //LCD_Display(Bmp_XuanZe, 0xb0, 0x10,0x08, 16);
-                                          //LCD_Display(Bmp_XuanZe+16, 0xb1, 0x10,0x08, 16);
+                                         
                                           XuanZeDisplay(0xb0, 0xb1,0x10,0x08);
                                           while(1) { 	  Delay(0x00006fff);     
                                           g_BackCounter1=g_BackCounter1+1;
@@ -547,23 +534,7 @@
                                                               
                             g_Key2StateCheck=0;
                             
-                            if(g_CounterPointA1>(u16)((u32)SAMPLING_POINTS*98/100)) {g_CounterPointA1=(u16)((u32)SAMPLING_POINTS*98/100);}
-                            if(g_CounterPointA1<(u16)((u32)SAMPLING_POINTS*40/100)) {g_CounterPointA1=(u16)((u32)SAMPLING_POINTS*40/100);}
-                            if(g_CounterPointB1>(u16)((u32)SAMPLING_POINTS*98/100)) {g_CounterPointB1=(u16)((u32)SAMPLING_POINTS*98/100);}
-                            if(g_CounterPointB1<(u16)((u32)SAMPLING_POINTS*40/100)) {g_CounterPointB1=(u16)((u32)SAMPLING_POINTS*40/100);}
-                            if(g_CounterPointC1>(u16)((u32)SAMPLING_POINTS*98/100)) {g_CounterPointC1=(u16)((u32)SAMPLING_POINTS*98/100);}
-                            if(g_CounterPointC1<(u16)((u32)SAMPLING_POINTS*40/100)) {g_CounterPointC1=(u16)((u32)SAMPLING_POINTS*40/100);}
-                                              if(g_CounterPointA2>(u16)((u32)SAMPLING_POINTS*98/100)) {g_CounterPointA2=(u16)((u32)SAMPLING_POINTS*98/100);}
-                            if(g_CounterPointA2<(u16)((u32)SAMPLING_POINTS*40/100)) {g_CounterPointA2=(u16)((u32)SAMPLING_POINTS*40/100);}
-                            if(g_CounterPointB2>(u16)((u32)SAMPLING_POINTS*98/100)) {g_CounterPointB2=(u16)((u32)SAMPLING_POINTS*98/100);}
-                            if(g_CounterPointB2<(u16)((u32)SAMPLING_POINTS*40/100)) {g_CounterPointB2=(u16)((u32)SAMPLING_POINTS*40/100);}
-                            if(g_CounterPointC2>(u16)((u32)SAMPLING_POINTS*98/100)) {g_CounterPointC2=(u16)((u32)SAMPLING_POINTS*98/100);}
-                            if(g_CounterPointC2<(u16)((u32)SAMPLING_POINTS*40/100)) {g_CounterPointC2=(u16)((u32)SAMPLING_POINTS*40/100);}
-                                              if(g_CounterPointD1>(u16)((u32)SAMPLING_POINTS*98/100)) {g_CounterPointD1=(u16)((u32)SAMPLING_POINTS*98/100);}
-                            if(g_CounterPointD1<(u16)((u32)SAMPLING_POINTS*40/100)) {g_CounterPointD1=(u16)((u32)SAMPLING_POINTS*40/100);}
-                                              if(g_CounterPointD2>(u16)((u32)SAMPLING_POINTS*98/100)) {g_CounterPointD2=(u16)((u32)SAMPLING_POINTS*98/100);}
-                            if(g_CounterPointD2<(u16)((u32)SAMPLING_POINTS*40/100)) {g_CounterPointD2=(u16)((u32)SAMPLING_POINTS*40/100);}
-                            while(1)
+                         while(1)
                                     { 	  Delay(0x00006fff);     
                           g_BackCounter1=g_BackCounter1+1;
                           if(g_BackCounter1>100)
